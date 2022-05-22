@@ -1,18 +1,27 @@
-import { Heading, HStack, Img, Tag, TagLabel, TagRightIcon, Text, VStack } from "@chakra-ui/react";
+import {
+  Heading,
+  HStack,
+  Image,
+  Tag,
+  TagLabel,
+  TagRightIcon,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 
-export const SingleRepo = () => {
+export const SingleRepo = ({repo}) => {
   return (
     <HStack>
-      <Img />
+      <Image boxSize="150px" objectFit="cover" src={repo.avatar_url} alt="Avatar" />
       <VStack>
-        <Heading>hi</Heading>
-        <Text></Text>
+        <Heading>{repo.name}</Heading>
+        <Text>{repo.desc}</Text>
         <HStack>
           <Tag variant="outline" colorScheme="blue">
             <TagLabel>Blue</TagLabel>
-            <TagRightIcon/>
+            <TagRightIcon />
           </Tag>
-          <Text></Text>
+          <Text>{repo.created_at}</Text>
         </HStack>
       </VStack>
     </HStack>
