@@ -4,7 +4,6 @@ import {
   Image,
   Tag,
   TagLabel,
-  TagRightIcon,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -12,16 +11,18 @@ import {
 export const SingleRepo = ({repo}) => {
   return (
     <HStack>
-      <Image boxSize="150px" objectFit="cover" src={repo.avatar_url} alt="Avatar" />
+      <Image boxSize="150px" objectFit="cover" src={repo.avatar_url} alt={repo.name} />
       <VStack>
-        <Heading>{repo.name}</Heading>
+        <Heading as={"h3"}>{repo.name}</Heading>
         <Text>{repo.desc}</Text>
-        <HStack>
-          <Tag variant="outline" colorScheme="blue">
-            <TagLabel>Blue</TagLabel>
-            <TagRightIcon />
+        <HStack gap={"3"}>
+          <Tag variant="outline" colorScheme="teal">
+            <TagLabel>Stars: {repo.stars} </TagLabel>
           </Tag>
-          <Text>{repo.created_at}</Text>
+          <Tag variant="outline" colorScheme="teal">
+            <TagLabel>Issues: {repo.issues} </TagLabel>
+          </Tag>
+          <Text>submitted {repo.created_at} days ago by {repo.author}</Text>
         </HStack>
       </VStack>
     </HStack>

@@ -9,7 +9,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router>
         <Routes>
-          <Route path="/github" element={<Repos />} />
+          <Route path="/" element={<Repos />} />
         </Routes>
       </Router>
     </QueryClientProvider>
