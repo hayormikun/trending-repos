@@ -1,4 +1,11 @@
-import { Button, Container, HStack, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Center,
+  Container,
+  HStack,
+  VStack,
+} from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
 import { useQuery } from "react-query";
@@ -17,6 +24,7 @@ export const Repos = () => {
     fetchRepos,
     {
       keepPreviousData: true,
+      staleTime: 30000,
     }
   );
   console.log(data);
@@ -30,13 +38,9 @@ export const Repos = () => {
   }
 
   return (
-    <Container bgSize={"container.xl"}>
-      <VStack gap={"5"}>
-        {data?.data?.items?.map((repo) => (
-          <SingleRepo repo={repo} />
-        ))}
-
-        <HStack>
+    <Box width={"100%"}>
+      <Center>
+        <HStack my={"5"}>
           <Button
             disabled={page === 1}
             onClick={() => {
@@ -54,7 +58,12 @@ export const Repos = () => {
             Next
           </Button>
         </HStack>
+      </Center>
+      <VStack gap={"5"}>
+        {data?.data?.items?.map((repo) => (
+          <SingleRepo repo={repo} />
+        ))}
       </VStack>
-    </Container>
+    </Box>
   );
 };
