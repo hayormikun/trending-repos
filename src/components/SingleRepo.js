@@ -26,10 +26,10 @@ export const SingleRepo = ({ repo }) => {
         <Heading as={"h4"}>{repo.name}</Heading>
         <Text>{repo.desc}</Text>
         <HStack gap={"3"}>
-          <Tag variant="outline" colorScheme="teal.900">
+          <Tag variant="outline" size={"md"} colorScheme="teal">
             Stars: {repo.watchers_count}
           </Tag>
-          <Tag variant="outline" colorScheme="teal.900">
+          <Tag variant="outline" size={"md"} colorScheme="teal">
             Issues: {repo.open_issues_count}
           </Tag>
           <Text>
