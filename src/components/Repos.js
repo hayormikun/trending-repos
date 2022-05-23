@@ -6,14 +6,13 @@ import { SingleRepo } from "./SingleRepo";
 
 const fetchRepos = ({ queryKey }) => {
   return axios.get(
-    `https://api.github.com/search/repositories?q=created:>2021-08-13&sort=stars&order=desc`
-    // page=${queryKey[1]}
+    `https://api.github.com/search/repositories?q=created:%3E2021-08-13&sort=stars&order=desc&page=${queryKey[1]}`
   );
 };
 export const Repos = () => {
-  const [page, setPage] = useState();
+  const [page, setPage] = useState(1);
 
-  const { data, status, isPreviousData } = useQuery(
+  const { data, isLoading, isError, isPreviousData } = useQuery(
     ["repos", page],
     fetchRepos,
     {
@@ -22,16 +21,16 @@ export const Repos = () => {
   );
   console.log(data);
 
-  if (status === "loading") {
+  if (isLoading) {
     return <div>loading...</div>;
   }
 
-  if (status === "error") {
+  if (isError) {
     return <div>error</div>;
   }
 
   return (
-    <Container size={"container.lg"}>
+    <Container bgSize={"container.xl"}>
       <VStack gap={"5"}>
         {data?.data?.items?.map((repo) => (
           <SingleRepo repo={repo} />

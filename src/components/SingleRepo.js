@@ -7,11 +7,18 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { differenceInDays } from "date-fns";
 
-export const SingleRepo = ({repo}) => {
+export const SingleRepo = ({ repo }) => {
+
   return (
-    <HStack>
-      <Image boxSize="150px" objectFit="cover" src={repo.avatar_url} alt={repo.name} />
+    <HStack key={repo.id}>
+      <Image
+        boxSize="150px"
+        objectFit="cover"
+        src={repo.owner.avatar_url}
+        alt={repo.name}
+      />
       <VStack>
         <Heading as={"h3"}>{repo.name}</Heading>
         <Text>{repo.desc}</Text>
@@ -22,9 +29,13 @@ export const SingleRepo = ({repo}) => {
           <Tag variant="outline" colorScheme="teal">
             <TagLabel>Issues: {repo.issues} </TagLabel>
           </Tag>
-          <Text>submitted {repo.created_at} days ago by {repo.author}</Text>
+          <Text>
+            submitted {differenceInDays(new Date(), new Date(repo.created_at))} days ago by {repo.owner.login}
+          </Text>
         </HStack>
       </VStack>
     </HStack>
   );
 };
+
+// format(subDays(date, repo.created_at), 'D')
