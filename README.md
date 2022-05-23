@@ -12,4 +12,4 @@ Trending-Repos displays the most starred Github repos that were created in the l
 ## Step by Step Guide
 1. Open the app in your desired text editor.
 2. Open a terminal at the folder that contains the code and run "npm start".
-3. Go to your browser and navigate to "https://localhost/github" to see a list of all trending repos.
+3. Go to your browser and navigate to "http://localhost:3000/github" to see a list of all trending repos.
