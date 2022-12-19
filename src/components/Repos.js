@@ -39,6 +39,18 @@ export const Repos = () => {
       <Center>
         <HStack my={"5"}>
           <Button
+            type="button"
+            variant="solid"
+            bgColor={"teal.500"}
+            color={"gray.100"}
+            _hover={{
+              bgColor: "teal.700",
+              color: "gray.100",
+              boxShadow: "lg",
+            }}
+            _active={{
+              boxShadow: "lg",
+            }}
             disabled={page === 1}
             onClick={() => {
               setPage((old) => old - 1);
