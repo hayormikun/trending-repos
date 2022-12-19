@@ -35,7 +35,7 @@ export const Repos = () => {
   }
 
   return (
-    <Box width={"100%"} bgColor={"azure"}>
+    <Box width={"full"} overflow={"hidden"} bgColor={"azure"}>
       <Center>
         <HStack my={"5"}>
           <Button
