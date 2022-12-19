@@ -74,7 +74,7 @@ export const Repos = () => {
         ))}
       </VStack>
       <Center>
-        <HStack my={"5"}>
+        <HStack my={"10"}>
           <Button
             type="button"
             variant="solid"
