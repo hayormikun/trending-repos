@@ -45,7 +45,7 @@ export const SingleRepo = ({ repo }) => {
               Issues: {repo.open_issues_count}
             </Tag>
           </HStack>
-          <Text>
+          <Text pb={2}>
             submitted {differenceInDays(new Date(), new Date(repo.created_at))}{" "}
             days ago by {repo.owner.login}
           </Text>
