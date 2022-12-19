@@ -1,19 +1,17 @@
-import {
-  Box,
-  Button,
-  Center,
-  Container,
-  HStack,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Button, Center, HStack, VStack } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
 import { useQuery } from "react-query";
+import { Loading } from "./Loading";
 import { SingleRepo } from "./SingleRepo";
+import { subMonths, format } from "date-fns";
+
+const monthInterval = subMonths(new Date(), 3);
+const date = format(monthInterval, "yyyy-MM-dd");
 
 const fetchRepos = ({ queryKey }) => {
   return axios.get(
-    `https://api.github.com/search/repositories?q=created:%3E2021-08-13&sort=stars&order=desc&page=${queryKey[1]}`
+    `${process.env.REACT_APP_BASE_API}${date}${process.env.REACT_APP_PARAMS}${queryKey[1]}`
   );
 };
 export const Repos = () => {
@@ -27,18 +25,17 @@ export const Repos = () => {
       staleTime: 30000,
     }
   );
-  console.log(data);
 
   if (isLoading) {
-    return <div>loading...</div>;
+    return <Loading />;
   }
 
   if (isError) {
-    return <div>error</div>;
+    return <div>Error encountered will loading repos... try again</div>;
   }
 
   return (
-    <Box width={"100%"}>
+    <Box width={"100%"} bgColor={"azure"}>
       <Center>
         <HStack my={"5"}>
           <Button
