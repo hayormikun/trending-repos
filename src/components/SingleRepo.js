@@ -14,12 +14,12 @@ import { differenceInDays } from "date-fns";
 export const SingleRepo = ({ repo }) => {
   return (
     <HStack
-      boxShadow={"md"}
-      m={"5"}
+      boxShadow={"lg"}
+      m={"10"}
       p={"auto"}
       w={["97%", "97%", "50%", "50%"]}
       _hover={{
-        boxShadow: "lg",
+        boxShadow: "xl",
       }}
     >
       <Link
