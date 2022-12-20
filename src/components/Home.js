@@ -15,6 +15,7 @@ export const Home = () => {
           </Heading>
           <Button
             type="button"
+            textAlign={"center"}
             py={5}
             px={7}
             size="lg"
