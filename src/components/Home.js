@@ -16,8 +16,6 @@ export const Home = () => {
           <Button
             type="button"
             textAlign={"center"}
-            py={5}
-            px={7}
             size="lg"
             rounded={"lg"}
             fontSize={"xl"}

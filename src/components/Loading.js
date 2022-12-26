@@ -5,9 +5,9 @@ export const Loading = () => {
   return (
     <Box width={"100%"} bgColor={"azure"}>
       <Center h={"100vh"}>
-        <VStack spacing={2}>
-        <ClipLoader color={"gray.900"} size={40} />
-        <Text fontWeight={"semibold"} color={"gray.900"}>Loading...</Text>
+        <VStack gap={2}>
+        <ClipLoader color={"gray.500"} size={32} />
+        <Text fontWeight={"semibold"} color={"gray.500"}>Loading...</Text>
         </VStack>
       </Center>
     </Box>
